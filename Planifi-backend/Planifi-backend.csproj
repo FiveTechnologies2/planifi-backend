@@ -19,7 +19,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Shared\Domain\Repositories\" />
       <Folder Include="Shared\Infrastructure\" />
     </ItemGroup>
 
