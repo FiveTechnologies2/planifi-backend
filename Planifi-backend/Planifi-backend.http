@@ -1,0 +1,6 @@
+@Planifi_backend_HostAddress = http://localhost:5055
+
+GET {{Planifi_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
