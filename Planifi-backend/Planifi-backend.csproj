@@ -19,14 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Shared\Domain\Repositories\" />
-      <Folder Include="Shared\Infrastructure\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Folder Include="IAM\Application\" />
-      <Folder Include="IAM\Domain\Model\Commands\" />
-      <Folder Include="IAM\Domain\Model\Entities\" />
       <Folder Include="IAM\Domain\Model\Queries\" />
       <Folder Include="IAM\Domain\Repositories\" />
       <Folder Include="IAM\Domain\Services\" />
