@@ -20,7 +20,6 @@
 
     <ItemGroup>
       <Folder Include="IAM\Application\" />
-      <Folder Include="IAM\Domain\Model\Queries\" />
       <Folder Include="IAM\Domain\Repositories\" />
       <Folder Include="IAM\Domain\Services\" />
       <Folder Include="IAM\Infrastructure\" />
