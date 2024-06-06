@@ -1,9 +1,9 @@
 ﻿using Planifi_backend.IAM.Domain.Model.Aggregates;
 using Planifi_backend.IAM.Domain.Model.Queries;
-using Planifi_backend.Profiles.Domain.Repositories;
+using Planifi_backend.IAM.Domain.Repositories;
 using Planifi_backend.Profiles.Domain.Services;
 
-namespace Planifi_backend.Profiles.Application.Internal.QueryServices;
+namespace Planifi_backend.IAM.Application.Internal.QueryServices;
 
 public class ProfileQueryService(IProfileRepository profileRepository) : IProfileQueryService
 {

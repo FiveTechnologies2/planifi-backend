@@ -3,7 +3,7 @@ using Planifi_backend.IAM.Domain.Model.Queries;
 using Planifi_backend.IAM.Domain.Model.ValueObjects;
 using Planifi_backend.Profiles.Domain.Services;
 
-namespace Planifi_backend.Profiles.Interfaces.ACL.Services;
+namespace Planifi_backend.IAM.Interfaces.ACL.Services;
 
 public class ProfilesContextFacade(IProfileCommandService profileCommandService, IProfileQueryService profileQueryService) : IProfilesContextFacade
 {
