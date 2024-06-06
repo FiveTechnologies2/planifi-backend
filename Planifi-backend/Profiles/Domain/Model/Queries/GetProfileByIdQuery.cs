@@ -1,3 +1,3 @@
 ﻿namespace Planifi_backend.IAM.Domain.Model.Queries;
 
-public record GetProfileByEmailQuery();
+public record GetProfileByIdQuery(int ProfileId);
