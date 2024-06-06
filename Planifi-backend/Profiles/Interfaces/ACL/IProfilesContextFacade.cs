@@ -1,4 +1,4 @@
-﻿namespace Planifi_backend.IAM.Interfaces.ACL;
+﻿namespace Planifi_backend.Profiles.Interfaces.ACL;
 
 public interface IProfilesContextFacade
 {

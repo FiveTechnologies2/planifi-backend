@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Planifi_backend.IAM.Domain.Model.Queries;
 using Planifi_backend.Profiles.Domain.Services;
-using Planifi_backend.IAM.Interfaces.REST.Resources;
-using Planifi_backend.IAM.Interfaces.REST.Transform;
+using Planifi_backend.Profiles.Interfaces.REST.Resources;
+using Planifi_backend.Profiles.Interfaces.REST.Transform;
 
-namespace Planifi_backend.IAM.Interfaces.REST;
+namespace Planifi_backend.Profiles.Interfaces.REST;
 
 [ApiController]
 [Route("api/v1/[controller]")]

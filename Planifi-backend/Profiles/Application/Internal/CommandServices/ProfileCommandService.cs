@@ -1,10 +1,10 @@
 ﻿using Planifi_backend.IAM.Domain.Model.Aggregates;
 using Planifi_backend.IAM.Domain.Model.Commands;
-using Planifi_backend.IAM.Domain.Repositories;
+using Planifi_backend.Profiles.Domain.Repositories;
 using Planifi_backend.Profiles.Domain.Services;
 using Planifi_backend.Shared.Domain.Repositories;
 
-namespace Planifi_backend.IAM.Application.Internal.CommandServices;
+namespace Planifi_backend.Profiles.Application.Internal.CommandServices;
 
 public class ProfileCommandService(IProfileRepository profileRepository, IUnitOfWork unitOfWork) : IProfileCommandService
 {
