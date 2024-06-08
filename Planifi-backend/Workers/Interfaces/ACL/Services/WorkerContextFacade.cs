@@ -1,10 +1,25 @@
-namespace Planifi_backend.Workers.Interfaces.ACL;
+using Planifi_backend.Workers.Domain.Model.Commands;
+using Planifi_backend.Workers.Domain.Model.Queries;
+using Planifi_backend.Workers.Domain.Model.ValueObjects;
+using Planifi_backend.Workers.Domain.Services;
 
-public interface IWorkersContextFacade
+namespace Planifi_backend.Workers.Interfaces.ACL.Services;
+
+public class WorkerContextFacade(IWorkerCommandService workerCommandService, IWorkerQueryService workerQueryService) : IWorkersContextFacade
 {
-    Task<int> CreateWorker(string Name, string Email, string Phone, string Address,
-        string Position, int WorkedHours, int ExtraHours, string Performance);
+    public Task<int> CreateWorker(string Name, string Email, string Phone, string Address, string Position, int WorkedHours,
+        int ExtraHours, string Performance)
+    {
+        var createWorkerCommand = new CreateWorkerCommand(Name, Email, Phone, Address, Position, Position, WorkedHours,
+            ExtraHours, Performance);
+        var worker = await workerCommandService.Handle(createWorkerCommand);
+        return worker?.Id ?? 0;
+    }
 
-    Task<int> FetchWorkerIdByEmail(string email);
-    
+    public async Task<int> FetchWorkerIdByEmail(string email)
+    {
+        var getWorkerByEmailQuery = new GetWorkerByEmailQuery(new EmailAddress(email));
+        var worker = await workerQueryService.Handle(getWorkerByEmailQuery);
+        return worker?.Id ?? 0;
+    }
 }
