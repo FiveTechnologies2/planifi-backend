@@ -1,5 +1,5 @@
 namespace Planifi_backend.Workers.Domain.Model.Commands
 {
-    public record CreateWorkerCommand(string Name, string Email, string Phone, string Address,
-        string Position, int WorkedHours, int ExtraHours, string Performance);
+    public record CreateWorkerCommand(string FirstName, string LastName, string Email, string Phone, string Address,
+        string Position, string WorkedHours, string ExtraHours, string Performance);
 }

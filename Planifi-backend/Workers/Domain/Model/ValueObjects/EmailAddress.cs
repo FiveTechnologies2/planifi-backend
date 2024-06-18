@@ -2,5 +2,5 @@
 
 public record EmailAddress(string Email)
 {
-    public EmailAddress() : this(String.Empty) {}
+    public EmailAddress() : this(string.Empty) {}
 }

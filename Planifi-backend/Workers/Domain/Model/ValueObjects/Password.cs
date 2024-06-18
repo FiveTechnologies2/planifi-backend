@@ -2,5 +2,5 @@
 
 public record Password(string Passwords)
 {
-    public Password() : this(String.Empty) {}
+    public Password() : this(string.Empty) {}
 }
