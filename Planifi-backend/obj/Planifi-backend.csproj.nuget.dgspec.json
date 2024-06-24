@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\salvl\\RiderProjects\\Planifi-backend\\Planifi-backend\\Planifi-backend.csproj": {}
+    "/Users/alumnos/Development/2401/si730/wx55/planifi-backend/Planifi-backend/Planifi-backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\salvl\\RiderProjects\\Planifi-backend\\Planifi-backend\\Planifi-backend.csproj": {
+    "/Users/alumnos/Development/2401/si730/wx55/planifi-backend/Planifi-backend/Planifi-backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\salvl\\RiderProjects\\Planifi-backend\\Planifi-backend\\Planifi-backend.csproj",
+        "projectUniqueName": "/Users/alumnos/Development/2401/si730/wx55/planifi-backend/Planifi-backend/Planifi-backend.csproj",
         "projectName": "Planifi-backend",
-        "projectPath": "C:\\Users\\salvl\\RiderProjects\\Planifi-backend\\Planifi-backend\\Planifi-backend.csproj",
-        "packagesPath": "C:\\Users\\salvl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\salvl\\RiderProjects\\Planifi-backend\\Planifi-backend\\obj\\",
+        "projectPath": "/Users/alumnos/Development/2401/si730/wx55/planifi-backend/Planifi-backend/Planifi-backend.csproj",
+        "packagesPath": "/Users/alumnos/.nuget/packages/",
+        "outputPath": "/Users/alumnos/Development/2401/si730/wx55/planifi-backend/Planifi-backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\salvl\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/alumnos/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,6 +38,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "EntityFrameworkCore.CreatedUpdatedDate": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -47,6 +49,10 @@
             "Humanizer": {
               "target": "Package",
               "version": "[2.14.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -60,6 +66,14 @@
               "target": "Package",
               "version": "[1.1.6, )"
             },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[7.6.0, )"
+            },
             "MySql.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.2, )"
@@ -71,6 +85,10 @@
             "Swashbuckle.AspNetCore.Annotations": {
               "target": "Package",
               "version": "[6.5.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.6.0, )"
             }
           },
           "imports": [
@@ -92,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
