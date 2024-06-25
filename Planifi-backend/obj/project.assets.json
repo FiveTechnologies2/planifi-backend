@@ -8559,24 +8559,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rodrigo\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\salvl\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rodrigo\\RiderProjects\\planifi-backend\\Planifi-backend\\Planifi-backend.csproj",
+      "projectUniqueName": "C:\\Users\\salvl\\RiderProjects\\planifi-backend\\Planifi-backend\\Planifi-backend.csproj",
       "projectName": "Planifi-backend",
-      "projectPath": "C:\\Users\\Rodrigo\\RiderProjects\\planifi-backend\\Planifi-backend\\Planifi-backend.csproj",
-      "packagesPath": "C:\\Users\\Rodrigo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rodrigo\\RiderProjects\\planifi-backend\\Planifi-backend\\obj\\",
+      "projectPath": "C:\\Users\\salvl\\RiderProjects\\planifi-backend\\Planifi-backend\\Planifi-backend.csproj",
+      "packagesPath": "C:\\Users\\salvl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\salvl\\RiderProjects\\planifi-backend\\Planifi-backend\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Rodrigo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\salvl\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8674,7 +8669,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

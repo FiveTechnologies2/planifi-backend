@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Planifi-backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+752c169107621eb4d29a156584449e1aa1a27f3e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bac3fd8e145d8f8b3f4aa1da2b981f4bf23280d1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Planifi-backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Planifi-backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
