@@ -23,6 +23,13 @@ using Planifi_backend.Shared.Domain.Repositories;
 using Planifi_backend.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using Planifi_backend.Shared.Infrastructure.Persistence.EFC.Configuration;
 using Planifi_backend.Shared.Infrastructure.Persistence.EFC.Repositories;
+using Planifi_backend.Workers.Application.Internal.CommandServices;
+using Planifi_backend.Workers.Application.Internal.QueryServices;
+using Planifi_backend.Workers.Domain.Repositories;
+using Planifi_backend.Workers.Domain.Services;
+using Planifi_backend.Workers.Infrastructure.Persistence.EFC.Repositories;
+using Planifi_backend.Workers.Interfaces.ACL;
+using Planifi_backend.Workers.Interfaces.ACL.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -120,6 +127,12 @@ builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
 builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
 builder.Services.AddScoped<IProfilesContextFacade, ProfilesContextFacade>();
+
+// Workers Bounded Context Injection Configuration
+builder.Services.AddScoped<IWorkerRepository, WorkerRepository>();
+builder.Services.AddScoped<IWorkerCommandService, WorkerCommandService>();
+builder.Services.AddScoped<IWorkerQueryService, WorkerQueryService>();
+builder.Services.AddScoped<IWorkersContextFacade, WorkersContextFacade>();
 
 // IAM Bound Context Injection Configuration
 builder.Services.Configure<TokenSettings>(builder.Configuration.GetSection("TokenSettings"));
