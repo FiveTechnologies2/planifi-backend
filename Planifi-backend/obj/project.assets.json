@@ -8559,24 +8559,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/alumnos/.nuget/packages/": {}
+    "C:\\Users\\karit\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/alumnos/Development/2401/si730/wx55/planifi-backend/Planifi-backend/Planifi-backend.csproj",
+      "projectUniqueName": "C:\\Users\\karit\\Downloads\\AplicacionesWeb-wx55\\planifi-backend2\\Planifi-backend\\Planifi-backend.csproj",
       "projectName": "Planifi-backend",
-      "projectPath": "/Users/alumnos/Development/2401/si730/wx55/planifi-backend/Planifi-backend/Planifi-backend.csproj",
-      "packagesPath": "/Users/alumnos/.nuget/packages/",
-      "outputPath": "/Users/alumnos/Development/2401/si730/wx55/planifi-backend/Planifi-backend/obj/",
+      "projectPath": "C:\\Users\\karit\\Downloads\\AplicacionesWeb-wx55\\planifi-backend2\\Planifi-backend\\Planifi-backend.csproj",
+      "packagesPath": "C:\\Users\\karit\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\karit\\Downloads\\AplicacionesWeb-wx55\\planifi-backend2\\Planifi-backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/alumnos/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\karit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8667,7 +8669,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\karit\\.dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
