@@ -1,6 +1,28 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using Planifi_backend.IAM.Application.Internal.CommandServices;
+using Planifi_backend.IAM.Application.Internal.OutboundServices;
+using Planifi_backend.IAM.Application.Internal.QueryServices;
+using Planifi_backend.IAM.Domain.Repositories;
+using Planifi_backend.IAM.Domain.Services;
+using Planifi_backend.IAM.Infrastructure.Hashing.BCrypt.Services;
+using Planifi_backend.IAM.Infrastructure.Persistence.EFC.Repositories;
+using Planifi_backend.IAM.Infrastructure.Pipeline.Middleware.Extensions;
+using Planifi_backend.IAM.Infrastructure.Tokens.JWT.Configuration;
+using Planifi_backend.IAM.Infrastructure.Tokens.JWT.Services;
+using Planifi_backend.IAM.Interfaces.ACL;
+using Planifi_backend.IAM.Interfaces.ACL.Services;
+using Planifi_backend.Profiles.Application.Internal.CommandServices;
+using Planifi_backend.Profiles.Application.Internal.QueryServices;
+using Planifi_backend.Profiles.Domain.Repositories;
+using Planifi_backend.Profiles.Domain.Services;
+using Planifi_backend.Profiles.Infrastructure.Persistence.EFC.Repositories;
+using Planifi_backend.Profiles.Interfaces.ACL;
+using Planifi_backend.Profiles.Interfaces.ACL.Services;
+using Planifi_backend.Shared.Domain.Repositories;
 using Planifi_backend.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using Planifi_backend.Shared.Infrastructure.Persistence.EFC.Configuration;
+using Planifi_backend.Shared.Infrastructure.Persistence.EFC.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,7 +55,80 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(
+    c =>
+    {
+        c.SwaggerDoc("v1",
+            new OpenApiInfo()
+            {
+                Title = "Planifi.API",
+                Version = "v1",
+                Description = "Planifi API",
+                TermsOfService = new Uri("https://planifi.com/tos"),
+                Contact = new OpenApiContact
+                {
+                    Name = "Planifi Studios",
+                    Email = "contact@planifi.com"
+                },
+                License = new OpenApiLicense
+                {
+                    Name = "Apache 2.0",
+                    Url = new Uri("https://www.apache.org/licenses/LICENSE-2.0.html")
+                }
+            });
+        c.EnableAnnotations();
+        c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            In = ParameterLocation.Header,
+            Description = "Please enter token",
+            Name = "Autorization",
+            Type = SecuritySchemeType.Http,
+            BearerFormat = "JWT",
+            Scheme = "bearer"
+        });
+        c.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Id = "Bearer", Type = ReferenceType.SecurityScheme
+                    }
+                },
+                Array.Empty<string>()
+            }
+        });
+    });
+
+// Add CORS Policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllPolicy",
+        policy => policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
+// Configure Dependency Injection
+
+// Shared Bounded Context Injection Configuration
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// Profiles Bounded Context Injection Configuration
+builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
+builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
+builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
+builder.Services.AddScoped<IProfilesContextFacade, ProfilesContextFacade>();
+
+// IAM Bound Context Injection Configuration
+builder.Services.Configure<TokenSettings>(builder.Configuration.GetSection("TokenSettings"));
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserCommandService, UserCommandService>();
+builder.Services.AddScoped<IUserQueryService, UserQueryService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IHashingService, HashingService>();
+builder.Services.AddScoped<IIamContextFacade, IamContextFacade>();
 
 var app = builder.Build();
 
@@ -52,30 +147,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowAllPolicy");
+
+// Add authorization middleware to pipeline
+app.UseRequestAuthorization();
+
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseAuthorization();
 
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast");
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
