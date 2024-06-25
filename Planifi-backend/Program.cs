@@ -81,7 +81,7 @@ builder.Services.AddSwaggerGen(
         {
             In = ParameterLocation.Header,
             Description = "Please enter token",
-            Name = "Autorization",
+            Name = "Authorization",
             Type = SecuritySchemeType.Http,
             BearerFormat = "JWT",
             Scheme = "bearer"
