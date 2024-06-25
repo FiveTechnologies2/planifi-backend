@@ -32,7 +32,7 @@ public class ProfilesController(IProfileCommandService profileCommandService, IP
         return Ok(profileResources);
     }
 
-    [HttpGet("{profileId:int")]
+    [HttpGet("{profileId:int}")]
     public async Task<IActionResult> GetProfileById(int profileId)
     {
         var getProfileByIdQuery = new GetProfileByIdQuery(profileId);
