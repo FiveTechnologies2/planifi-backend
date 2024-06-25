@@ -1,7 +1,6 @@
 ﻿using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Tls;
-using Planifi_backend.DataEntry.Domain.Model.Entities;
 using Planifi_backend.IAM.Domain.Model.Aggregates;
 using Planifi_backend.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using Planifi_backend.Workers.Domain.Model.Aggregates;
@@ -22,10 +21,6 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         base.OnModelCreating(builder);
         
         // Place here your entities configuration
-
-        builder.Entity<Category>().HasKey(c => c.Id);
-        builder.Entity<Category>().Property(c => c.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<Category>().Property(c => c.Name).IsRequired().HasMaxLength(30);
 
         builder.Entity<Profile>().HasKey(p => p.Id);
         builder.Entity<Profile>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
@@ -76,7 +71,6 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
                 w.Property(w => w.ExtraHours).HasColumnName("ExtraHours");
                 w.Property(w => w.Performance).HasColumnName("Performance");
             });
-        
         // IAM Context
 
         builder.Entity<User>().HasKey(u => u.Id);
